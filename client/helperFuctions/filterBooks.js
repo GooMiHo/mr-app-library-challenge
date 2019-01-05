@@ -2,9 +2,10 @@ import { cnvrtToCode } from '../helperFuctions/langConverter';
 
 export default function filterBooks(books, filterTopics) {
   const topics = Object.keys(filterTopics);
+  let filteredBooks;
   if (topics.length) {
     topics.forEach(topic => {
-      books = books.filter(book => {
+      filteredBooks = books.filter(book => {
         return filterTopics[topic].some(option => {
           if (topic === 'language') {
             option = cnvrtToCode(option);
@@ -14,6 +15,6 @@ export default function filterBooks(books, filterTopics) {
       });
     });
   }
-  return books;
+  return filteredBooks;
 }
 

@@ -16,6 +16,7 @@ class BookListComp extends Component {
     };
     this.searchOnChange = this.searchOnChange.bind(this);
     this.handleAddFilter = this.handleAddFilter.bind(this);
+    this.handleRemoveFilter = this.handleRemoveFilter.bind(this);
   }
 
   searchOnChange(searchVal) {
@@ -24,27 +25,47 @@ class BookListComp extends Component {
 
   handleAddFilter(topic, topicOptions) {
     this.setState((prevState) => {
-      let currentTopics = {...prevState.filterTopics};
+      let currentTopics = { ...prevState.filterTopics };
       currentTopics[topic] ? currentTopics[topic].push(topicOptions) : currentTopics[topic] = [topicOptions];
-      return {filterTopics: currentTopics};
+      return { filterTopics: currentTopics };
+    });
+  }
+
+  handleRemoveFilter(topic, topicOptions) {
+    this.setState((prevState) => {
+      let currentTopics = { ...prevState.filterTopics };
+      currentTopics[topic] = currentTopics[topic].filter(opt => opt !== topicOptions);
+      return { filterTopics: currentTopics };
     });
   }
 
   render() {
-    let books = this.props.books.docs;
+    const books = this.props.books.docs;
+    let booksWFilter;
+    const filterTopics = this.state.filterTopics;
+    const topics = Object.keys(filterTopics);
 
-    if (books && this.state.filterTopics) {
-      books = filterBooks(books, this.state.filterTopics);
+    if (books && filterTopics) {
+      booksWFilter = filterBooks(books, filterTopics);
     }
 
     return (
       <div>
-        <Main books={books} handleAddFilter={this.handleAddFilter}/>
+        <div>
+          { topics.map(topic => {
+              return filterTopics[topic].map(option => {
+                console.log('topic', option);
+                return <p key={option}>{option} <a>x</a></p>;
+              });
+            })
+          }
+        </div>
+        <Main books={books} handleAddFilter={this.handleAddFilter} />
         <SearchBar searchOnChange={this.searchOnChange} />
         <div>
-          {!books ?
+          {!booksWFilter ?
             <h4>There are no books matching this title</h4> :
-            books.map(book => {
+            booksWFilter.map(book => {
               return <Book key={book.key} book={book} />;
             })
           }
