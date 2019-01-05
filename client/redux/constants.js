@@ -1,4 +1,2 @@
-export const SET_BOOKS = 'SET_BOOKS';
-export const SET_BOOKS_BY_AUTHOR = 'SET_BOOKS_BY_AUTHOR';
 export const SET_BOOKS_BY_TITLE = 'SET_BOOKS_BY_TITLE';
 export const SELECT_BOOK = 'SELECT_BOOK';

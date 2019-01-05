@@ -12,9 +12,12 @@ class BookListComp extends Component {
     super();
     this.state = {
       searchVal: '',
-      filteredBooks: []  //use or remove
+      filterTopics: [],
+      filteredBooks: [],
+      value: 1
     };
     this.searchOnChange = this.searchOnChange.bind(this);
+    this.handleAddFilter = this.handleAddFilter.bind(this);
   }
 
   searchOnChange(searchVal) {
@@ -22,11 +25,22 @@ class BookListComp extends Component {
     this.props.fetchBooksByTitle(searchVal);
   }
 
+  handleAddFilter(filterTopic) {
+    this.setState((prevState) => {
+      let currentTopics = [...prevState.filterTopics];
+      if (!currentTopics.includes(filterTopic)) {
+        currentTopics.push(filterTopic);
+      }
+      return {filterTopics: currentTopics};
+    });
+  }
+
   render() {
     const books = this.props.books.docs;
+
     return (
       <div>
-        <Main books={books} />
+        <Main books={books} handleAddFilter={this.handleAddFilter}/>
         <SearchBar searchOnChange={this.searchOnChange} />
         <div>
           {!books ?

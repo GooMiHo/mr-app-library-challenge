@@ -1,34 +1,25 @@
 import React, { Component } from 'react';
 import getBookLangs from '../helperFuctions/getBookLang';
+import getTopicList from '../helperFuctions/getTopicList';
+import CategoryFilter from './filterBar/categoryFilter';
 
 export default class Main extends Component {
+
   render() {
-    let languages;
+    const handleAddFilter = this.props.handleAddFilter;
+    let languages, authors, publishers;
     if (this.props.books) {
       languages = getBookLangs(this.props.books);
+      authors = getTopicList(this.props.books, 'author_name');
+      publishers = getTopicList(this.props.books, 'publisher');
     }
-
     return (
       <div>
-        <div className="dropdown">
-          <button onClick={() => { toggleDropDwnBtn('lang-dropdown') }} type="button" className="dropdown-btn">language</button>
-          {languages ? (
-            <div id="lang-dropdown" className="dropdown-list">
-              {
-                languages.map(language => {
-                  return <p key={language} value={language}>{language}</p>;
-                })
-              }
-            </div>) : null}
-        </div>
+        <CategoryFilter category={languages} title="language" idName="lang-dropdown" handleAddFilter={handleAddFilter} />
+        <CategoryFilter category={authors} title="author" idName="auth-dropdown" handleAddFilter={handleAddFilter} />
+        <CategoryFilter category={publishers} title="publisher" idName="pub-dropdown" handleAddFilter={handleAddFilter} />
       </div>
     );
-  }
-}
-
-function toggleDropDwnBtn(id) {
-  if(  document.getElementById(id)) {
-    document.getElementById(id).classList.toggle('show');
   }
 }
 

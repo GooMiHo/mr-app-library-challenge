@@ -9,7 +9,7 @@ export default function getBookLangs(books) {
       });
     }
   });
-  const unique = allLang.sort().filter((prev, i, product) => !i || prev !== product[i - 1]);
+  const unique = allLang.sort().filter((prev, i, opt) => !i || prev !== opt[i - 1]);
   const languages = [];
   unique.forEach(lang => {
     const convertedLang = cnvrtLangCode(lang);
