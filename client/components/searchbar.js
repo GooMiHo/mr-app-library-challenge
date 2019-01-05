@@ -3,14 +3,12 @@ import React from 'react';
 const SearchBar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.searchOnChange(e.target.value);
+    props.searchOnChange(e.target.searchVal.value);
   };
   return (
-    <form className="search" onSubmit={handleSubmit} >
-      <div>
-        <input onChange={e => handleSubmit(e)} name="searchVal" type="text" placeholder="Search by title" />
-      </div>
-
+    <form className="search" onSubmit={e => handleSubmit(e)} >
+        <input name="searchVal" type="text" placeholder="Search by title" />
+        <button type="submit">search</button>
     </form>
   );
 };
