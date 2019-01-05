@@ -6,6 +6,7 @@ import Main from './main';
 import Book from './book';
 import SearchBar from './searchBar';
 import filterBooks from '../helperFuctions/filterBooks';
+import RmvFiltBtn from './rmvFiltBtn';
 
 class BookListComp extends Component {
 
@@ -16,7 +17,7 @@ class BookListComp extends Component {
     };
     this.searchOnChange = this.searchOnChange.bind(this);
     this.handleAddFilter = this.handleAddFilter.bind(this);
-    this.handleRemoveFilter = this.handleRemoveFilter.bind(this);
+    this.handleRmvFilter = this.handleRmvFilter.bind(this);
   }
 
   searchOnChange(searchVal) {
@@ -31,7 +32,7 @@ class BookListComp extends Component {
     });
   }
 
-  handleRemoveFilter(topic, topicOptions) {
+  handleRmvFilter(topic, topicOptions) {
     this.setState((prevState) => {
       let currentTopics = { ...prevState.filterTopics };
       currentTopics[topic] = currentTopics[topic].filter(opt => opt !== topicOptions);
@@ -40,32 +41,32 @@ class BookListComp extends Component {
   }
 
   render() {
-    const books = this.props.books.docs;
-    let booksWFilter;
+    const booksNoFilt = this.props.books.docs;
     const filterTopics = this.state.filterTopics;
     const topics = Object.keys(filterTopics);
-
-    if (books && filterTopics) {
-      booksWFilter = filterBooks(books, filterTopics);
-    }
+    const books = filterBooks(booksNoFilt, filterTopics);
 
     return (
       <div>
         <div>
-          { topics.map(topic => {
-              return filterTopics[topic].map(option => {
-                console.log('topic', option);
-                return <p key={option}>{option} <a>x</a></p>;
-              });
-            })
-          }
+          {topics.map(topic => {
+            return filterTopics[topic].map(option => {
+              return (
+                <div key={option}>
+                  <p>{option}</p><RmvFiltBtn handleRmvFilter={this.handleRmvFilter} />
+                </div>
+              );
+          });
+          })
+        }
         </div>
-        <Main books={books} handleAddFilter={this.handleAddFilter} />
+        <h1>Test!!</h1>
+        <Main books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
         <SearchBar searchOnChange={this.searchOnChange} />
         <div>
-          {!booksWFilter ?
+          {!books ?
             <h4>There are no books matching this title</h4> :
-            booksWFilter.map(book => {
+            books.map(book => {
               return <Book key={book.key} book={book} />;
             })
           }
