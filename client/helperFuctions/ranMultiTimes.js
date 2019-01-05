@@ -9,6 +9,6 @@ function createRanMultiTimesFunc() {
   };
 }
 
-const isFirstRun = createRanMultiTimesFunc();
+const ranMultiTimes = createRanMultiTimesFunc();
 
-export default isFirstRun;
+export default ranMultiTimes;

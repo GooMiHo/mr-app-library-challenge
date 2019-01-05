@@ -1,5 +1,5 @@
 import React from 'react';
-import image2Failed from '../helperFuctions/is_first_run';
+import image2Failed from './ranMultiTimes';
 
 // The below function checks which kind of image key exhists, which can be ISBN, LCCN, or OCLC.
 

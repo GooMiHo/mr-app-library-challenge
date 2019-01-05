@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBooksByTitle } from '../../client/redux/actions';
+import { fetchBooksByTitle } from '../redux/actions';
+
+import Main from './main';
 import Book from './book';
-import SearchBar from './searchbar';
+import SearchBar from './searchBar';
 
 class BookListComp extends Component {
 
@@ -24,6 +26,7 @@ class BookListComp extends Component {
     const books = this.props.books.docs;
     return (
       <div>
+        <Main books={books} />
         <SearchBar searchOnChange={this.searchOnChange} />
         <div>
           {!books ?

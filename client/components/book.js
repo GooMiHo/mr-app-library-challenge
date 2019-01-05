@@ -1,5 +1,5 @@
 import React from 'react';
-import BookImage from '../helperFuctions/book_image';
+import BookImage from '../helperFuctions/bookImage';
 
 const Book = (props) => {
   const book = props.book;
