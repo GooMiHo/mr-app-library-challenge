@@ -5,38 +5,37 @@ import { fetchBooksByTitle } from '../redux/actions';
 import Main from './main';
 import Book from './book';
 import SearchBar from './searchBar';
+import filterBooks from '../helperFuctions/filterBooks';
 
 class BookListComp extends Component {
 
   constructor() {
     super();
     this.state = {
-      searchVal: '',
-      filterTopics: [],
-      filteredBooks: [],
-      value: 1
+      filterTopics: {}
     };
     this.searchOnChange = this.searchOnChange.bind(this);
     this.handleAddFilter = this.handleAddFilter.bind(this);
   }
 
   searchOnChange(searchVal) {
-    this.setState({ searchVal });
     this.props.fetchBooksByTitle(searchVal);
   }
 
-  handleAddFilter(filterTopic) {
+  handleAddFilter(topic, topicOptions) {
     this.setState((prevState) => {
-      let currentTopics = [...prevState.filterTopics];
-      if (!currentTopics.includes(filterTopic)) {
-        currentTopics.push(filterTopic);
-      }
+      let currentTopics = {...prevState.filterTopics};
+      currentTopics[topic] ? currentTopics[topic].push(topicOptions) : currentTopics[topic] = [topicOptions];
       return {filterTopics: currentTopics};
     });
   }
 
   render() {
-    const books = this.props.books.docs;
+    let books = this.props.books.docs;
+
+    if (books && this.state.filterTopics) {
+      books = filterBooks(books, this.state.filterTopics);
+    }
 
     return (
       <div>

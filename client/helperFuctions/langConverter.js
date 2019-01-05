@@ -8,3 +8,11 @@ export default function cnvrtLangCode(langCode) {
     }
   }
 }
+
+export function cnvrtToCode(lang) {
+  for (var i = 0; i < iso6392.length; i++) {
+    if (iso6392[i].name === lang) {
+      return iso6392[i].iso6392B;
+    }
+  }
+}

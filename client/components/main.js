@@ -15,9 +15,9 @@ export default class Main extends Component {
     }
     return (
       <div>
-        <CategoryFilter category={languages} title="language" idName="lang-dropdown" handleAddFilter={handleAddFilter} />
-        <CategoryFilter category={authors} title="author" idName="auth-dropdown" handleAddFilter={handleAddFilter} />
-        <CategoryFilter category={publishers} title="publisher" idName="pub-dropdown" handleAddFilter={handleAddFilter} />
+        <CategoryFilter category={languages} title="language" idName="language" handleAddFilter={handleAddFilter} />
+        <CategoryFilter category={authors} title="author" idName="author_name" handleAddFilter={handleAddFilter} />
+        <CategoryFilter category={publishers} title="publisher" idName="publisher" handleAddFilter={handleAddFilter} />
       </div>
     );
   }

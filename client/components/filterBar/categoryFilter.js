@@ -12,7 +12,7 @@ const CategoryFilter = (props) => {
       {category ? (
         <div
           id={props.idName} className="dropdown-list" onClick={function (ev) {
-            handleAddFilter(ev.target.innerHTML);
+            handleAddFilter(props.idName, ev.target.innerHTML);
           }}>
           {
             category.map(author => {
