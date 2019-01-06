@@ -6,7 +6,6 @@ import Main from '../filterBar/filterBar';
 import Book from './book';
 import SearchBar from '../searchBar';
 import filterBooks from '../../helperFuctions/filterBooks';
-import RmvFiltBtn from './rmvFiltBtn';
 import FilteredList from './filteredList';
 
 class BookListComp extends Component {

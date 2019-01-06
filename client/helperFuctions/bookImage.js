@@ -13,11 +13,11 @@ export default function BookImage(book) {
 
     return (
       <img
-        src={`http://covers.openlibrary.org/b/isbn/${bookImg[0]}-S.jpg?default=false`}
+        src={`https://covers.openlibrary.org/b/isbn/${bookImg[0]}-S.jpg?default=false`}
         onError={(e) => {
           e.target.onerror = null; e.target.src = image2Failed() || !bookImg[1] ?
             'https://i.ibb.co/MBtx88j/book-img-not-available.png'
-            : `http://covers.openlibrary.org/b/isbn/${bookImg[1]}-S.jpg?default=false`;
+            : `https://covers.openlibrary.org/b/isbn/${bookImg[1]}-S.jpg?default=false`;
         }}
         alt="book cover image"
       />
