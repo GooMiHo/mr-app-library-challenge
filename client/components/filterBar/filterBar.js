@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import getBookLangs from '../helperFuctions/getBookLang';
-import getTopicList from '../helperFuctions/getTopicList';
-import CategoryFilter from './filterBar/categoryFilter';
+import getBookLangs from '../../helperFuctions/getBookLang';
+import getTopicList from '../../helperFuctions/getTopicList';
+import CategoryFilter from './categoryFilter';
 
 export default class Main extends Component {
 

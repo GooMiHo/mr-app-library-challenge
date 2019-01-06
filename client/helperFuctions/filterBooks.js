@@ -2,7 +2,6 @@ import cnvrtLangCode from '../helperFuctions/langConverter';
 
 export default function filterBooks(books, filterTopics) {
   const topics = Object.keys(filterTopics);
-  console.log('topics', topics)
   let filteredBooks = [];
   if (topics.length) {
     books.forEach(book => {

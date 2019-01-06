@@ -5,7 +5,6 @@ import toggleDropDwnBtn from './tggleDrpDwnBtw';
 const CategoryFilter = (props) => {
   const category = props.category;
   const handleAddFilter = props.handleAddFilter;
-  // console.log('handleFChange', handleAddFilter);
   return (
     <div className="dropdown">
       <button onClick={() => { toggleDropDwnBtn(props.idName) }} type="button" className="dropdown-btn">{`${props.title} \u25bc`}</button>

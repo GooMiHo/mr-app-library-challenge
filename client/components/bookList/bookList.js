@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBooksByTitle } from '../redux/actions';
+import { fetchBooksByTitle } from '../../redux/actions';
 
-import Main from './main';
+import Main from '../filterBar/filterBar';
 import Book from './book';
-import SearchBar from './searchBar';
-import filterBooks from '../helperFuctions/filterBooks';
+import SearchBar from '../searchBar';
+import filterBooks from '../../helperFuctions/filterBooks';
 import RmvFiltBtn from './rmvFiltBtn';
+import FilteredList from './filteredList';
 
 class BookListComp extends Component {
 
@@ -28,7 +29,12 @@ class BookListComp extends Component {
   handleAddFilter(topic, topicOptions) {
     this.setState((prevState) => {
       let currentTopics = { ...prevState.filterTopics };
-      currentTopics[topic] ? currentTopics[topic].push(topicOptions) : currentTopics[topic] = [topicOptions];
+      if (currentTopics[topic] && !currentTopics[topic].includes(topicOptions)) {
+        currentTopics[topic].push(topicOptions);
+      }
+      else {
+        currentTopics[topic] = [topicOptions];
+      }
       return { filterTopics: currentTopics };
     });
   }
@@ -42,7 +48,6 @@ class BookListComp extends Component {
       if (currentTopics[topic].length === 0) {
         delete currentTopics[topic];
       }
-      console.log('currentTopics', currentTopics);
       return { filterTopics: currentTopics };
     });
   }
@@ -50,24 +55,14 @@ class BookListComp extends Component {
   render() {
     const booksNoFilt = this.props.books.docs;
     const filterTopics = this.state.filterTopics;
-    const topics = Object.keys(filterTopics);
     const books = filterBooks(booksNoFilt, filterTopics);
 
     return (
       <div>
+        <h1>Library App</h1>
         <div>
-          {topics.map(topic => {
-            return filterTopics[topic].map(option => {
-              return (
-                <div key={option}>
-                  <p>{option}</p><RmvFiltBtn handleRmvFilter={this.handleRmvFilter} topic={topic} option={option}/>
-                </div>
-              );
-          });
-          })
-        }
+          <FilteredList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
         </div>
-        <h1>Test!!</h1>
         <Main books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
         <SearchBar searchOnChange={this.searchOnChange} />
         <div>
