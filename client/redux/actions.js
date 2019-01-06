@@ -9,7 +9,7 @@ const setBooksByTitle = (books) => ({
 export const fetchBooksByTitle = (title) => {
   const titleFormated = title.trim().replace(/ /g, '+');
   return async (dispatch) => {
-    const { data: books } = await axios.get(`http://openlibrary.org/search.json?title=${titleFormated}`);
+    const { data: books } = await axios.get(`https://openlibrary.org/search.json?title=${titleFormated}`);
     dispatch(setBooksByTitle(books));
   };
 };
