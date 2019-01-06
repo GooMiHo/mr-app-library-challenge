@@ -3,7 +3,9 @@ import React from 'react';
 const RmvFiltBtn = (props) => {
   const handleRmvFilter = props.handleRmvFilter;
   return (
-    <button onClick={handleRmvFilter} type="button">
+
+    //working here put arguments in handleRmvFilter
+    <button onClick={() => handleRmvFilter(props.topic, props.option)} type="button">
       x
     </button>
   )

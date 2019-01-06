@@ -13,7 +13,8 @@ class BookListComp extends Component {
   constructor() {
     super();
     this.state = {
-      filterTopics: {}
+      filterTopics: {
+      }
     };
     this.searchOnChange = this.searchOnChange.bind(this);
     this.handleAddFilter = this.handleAddFilter.bind(this);
@@ -35,7 +36,13 @@ class BookListComp extends Component {
   handleRmvFilter(topic, topicOptions) {
     this.setState((prevState) => {
       let currentTopics = { ...prevState.filterTopics };
-      currentTopics[topic] = currentTopics[topic].filter(opt => opt !== topicOptions);
+      currentTopics[topic] = currentTopics[topic].filter(opt => {
+        return opt !== topicOptions;
+      });
+      if (currentTopics[topic].length === 0) {
+        delete currentTopics[topic];
+      }
+      console.log('currentTopics', currentTopics);
       return { filterTopics: currentTopics };
     });
   }
@@ -53,7 +60,7 @@ class BookListComp extends Component {
             return filterTopics[topic].map(option => {
               return (
                 <div key={option}>
-                  <p>{option}</p><RmvFiltBtn handleRmvFilter={this.handleRmvFilter} />
+                  <p>{option}</p><RmvFiltBtn handleRmvFilter={this.handleRmvFilter} topic={topic} option={option}/>
                 </div>
               );
           });
