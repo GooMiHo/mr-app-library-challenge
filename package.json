@@ -5,7 +5,6 @@
   "main": "client/app.js",
   "scripts": {
     "start": "node server",
-    "postinstall": "webpack -p",
     "start-dev": "webpack -w & nodemon server",
     "test": "mocha ./tests/*.spec.js --compilers js:@babel/register"
   },
