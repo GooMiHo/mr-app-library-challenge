@@ -1,32 +1,21 @@
-import cnvrtLangCode from '../helperFuctions/langConverter';
+import { cnvrtToCode } from '../helperFuctions/langConverter';
 
 export default function filterBooks(books, filterTopics) {
   const topics = Object.keys(filterTopics);
-  let filteredBooks = [];
+  let filteredBooks = books;
   if (topics.length) {
-    books.forEach(book => {
-      hasTopic(book);
-    });
-    return filteredBooks;
-  }
-  else {
-    return books;
-  }
-
-
-  function hasTopic(book) {
     topics.forEach(topic => {
+      filteredBooks = filteredBooks.filter(book => {
+        return filterTopics[topic].some(option => {
 
-      if (book[topic]) {
-        book[topic].some(option => {
           if (topic === 'language') {
-            option = cnvrtLangCode(option);
+            option = cnvrtToCode(option);
           }
-          if (filterTopics[topic].includes(option)) {
-            filteredBooks.push(book);
-          }
+
+          return book[topic] && book[topic].includes(option);
         });
-      }
+      });
     });
   }
+    return filteredBooks;
 }

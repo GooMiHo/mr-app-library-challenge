@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBooksByTitle } from '../../redux/actions';
+import { fetchBooksByTitle } from '../redux/actions';
 
-import Main from '../filterBar/filterBar';
-import Book from './book';
-import SearchBar from '../searchBar';
-import filterBooks from '../../helperFuctions/filterBooks';
-import FilteredList from './filteredList';
+import FilterBar from './filterBar/filterBar';
+import SearchBar from './searchBar';
+import filterBooks from '../helperFuctions/filterBooks';
+import FilteredList from './bookList/filteredList';
+import BookList from './bookList/index';
 
-class BookListComp extends Component {
+class MainComp extends Component {
 
   constructor() {
     super();
@@ -62,16 +62,9 @@ class BookListComp extends Component {
         <div>
           <FilteredList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
         </div>
-        <Main books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
+        <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
         <SearchBar searchOnChange={this.searchOnChange} />
-        <div>
-          {!books ?
-            <h4>There are no books matching this title</h4> :
-            books.map(book => {
-              return <Book key={book.key} book={book} />;
-            })
-          }
-        </div>
+        <BookList books={books} />
       </div>
     );
   }
@@ -87,5 +80,5 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-const BookList = connect(mapStateToProps, mapDispatchToProps)(BookListComp);
-export default BookList;
+const Main = connect(mapStateToProps, mapDispatchToProps)(MainComp);
+export default Main;
