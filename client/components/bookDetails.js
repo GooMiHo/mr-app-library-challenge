@@ -16,13 +16,17 @@ class BookDetailsComp extends Component {
     let book = this.props.book;
     return (
       <div>
+        <button type="button" onClick={() => { this.props.history.push('/') }}>x</button>
         <div>{BookImage(book, 'L')}</div>
         <h1>{book.title}</h1>
         <p>
           <i>author {book.author_name ? book.author_name.join(', ') : 'N/A'}</i>
+          <p>First published in {book.first_publish_year || 'N/A'}</p>
+          <p><i>{book.publish_year ? book.publish_year.length : 'N/A'} additions</i></p>
         </p>
         <br />
         <p>{book.first_sentence}</p>
+        <br />
       </div>
     );
   }
@@ -38,5 +42,3 @@ const mapDispatchToProps = (dispatch) => ({
 
 const BookDetails = connect(mapStateToProps, mapDispatchToProps)(BookDetailsComp);
 export default BookDetails;
-
-//this.props.history.push(`/update/campuses/${campus.id}`)
