@@ -33,7 +33,7 @@ class BookDetailsComp extends Component {
         <br />
         <p>{book.first_sentence}</p>
         <h5>subjects:</h5>
-        <p>
+        <div>
           {book.subject ? book.subject.map((subj, i) => {
             return (
               <p key={`${book.subject}${subj}`}>
@@ -42,7 +42,7 @@ class BookDetailsComp extends Component {
             );
           }) :
             'N/A'}
-        </p>
+        </div>
         <br />
       </div>
     );

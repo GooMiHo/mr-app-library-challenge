@@ -13,7 +13,7 @@ export default function BookList({ books, sort, history }) {
       {!books ?
         <h4>Please search for a book by title to view results</h4> :
         !books.length ?
-          <h4>There are no books matching this title</h4> :
+          <h4>There are no books matching these requirements</h4> :
           books.map(book => {
             let key = book.key.slice(7);
             return (

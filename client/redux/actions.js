@@ -18,6 +18,12 @@ export const fetchBookByKey = (key, books) => {
   };
 };
 
+export const fetchLastBook = (book) => {
+  return (dispatch) => {
+    dispatch(setBook(book));
+  };
+};
+
 export const fetchBooksByTitle = (title) => {
   const titleFormated = title.trim().replace(/ /g, '+');
   return async (dispatch) => {
