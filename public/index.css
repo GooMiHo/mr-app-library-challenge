@@ -3,9 +3,9 @@
   margin: 0;
 }
 
-/* ================= Filter Dropdown Menus ================= */
+/* ======== All Bars (Search Bar, Filter Bar, Sort) ======== */
 
-/* Dropdown Button */
+#search-bar,
 .dropdown-btn {
   background-color: #19cecb;
   color: white;
@@ -16,6 +16,7 @@
   cursor: pointer;
 }
 
+/* ================= Filter Dropdown Menus ================= */
 .dropdown-btn:hover, .dropdown-btn:focus {
   background-color: #16b0ad;
 }
@@ -46,7 +47,27 @@
   display: block;
 }
 
-.dropdown-list p:hover {background-color: #ddd}
+.dropdown-list p:hover {
+  background-color: #ddd
+}
 
 /* shows dropdown menu */
-.show {display:block;}
+.show {
+  display: block;
+}
+
+
+
+/* ======================= Search Bar ====================== */
+
+#filter-bar-div {
+  display: none;
+}
+
+.dropdown {
+  display: none;
+}
+
+.show-filter {
+  background-color: red
+}
