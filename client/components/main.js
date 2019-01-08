@@ -74,10 +74,10 @@ class MainComp extends Component {
         <div>
           <FilteredList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
         </div>
-        <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
+        <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} filterTopics={this.state.filterTopics} />
         <SortMenu handleAddSort={this.handleAddSort} />
         <SearchBar searchOnChange={this.searchOnChange} />
-        <BookList books={books} sort={this.state.sortChoice} history={this.props.history}/>
+        <BookList books={books} sort={this.state.sortChoice} history={this.props.history} />
       </div>
     );
   }

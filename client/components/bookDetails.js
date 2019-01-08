@@ -19,13 +19,18 @@ class BookDetailsComp extends Component {
         <button type="button" onClick={() => { this.props.history.push('/') }}>x</button>
         <div>{BookImage(book, 'L')}</div>
         <h1>{book.title}</h1>
-        <p>
-          <i>author {book.author_name ? book.author_name.join(', ') : 'N/A'}</i>
+          <p>author {book.author_name ? book.author_name.join(', ') : 'N/A'}</p>
           <p>First published in {book.first_publish_year || 'N/A'}</p>
           <p><i>{book.publish_year ? book.publish_year.length : 'N/A'} additions</i></p>
-        </p>
         <br />
         <p>{book.first_sentence}</p>
+        <h5>subjects:</h5>
+        <p>
+          {book.subject ? book.subject.map(subj => {
+            return addLink('subjects', subj);
+          }) :
+          'N/A'};
+        </p>
         <br />
       </div>
     );
@@ -42,3 +47,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 const BookDetails = connect(mapStateToProps, mapDispatchToProps)(BookDetailsComp);
 export default BookDetails;
+
+function addLink(type, topic) {
+  let searchTopic = topic.replace(/ /g, '_');
+  return (
+    <a href={`https://openlibrary.org/${type}/${searchTopic}`}>{searchTopic}</a>
+  );
+}

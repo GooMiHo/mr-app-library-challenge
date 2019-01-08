@@ -1,17 +1,21 @@
 import React from 'react';
 import toggleDropDwnBtn from '../../helperFuctions/tggleDrpDwnBtn';
-
+import getFilteredList from '../../helperFuctions/getFilterList';
 
 const CategoryFilter = (props) => {
   const category = props.category;
   const handleAddFilter = props.handleAddFilter;
+  const fiteredList = getFilteredList(props.filterTopics);
+
   return (
     <div className="dropdown">
       <button onClick={() => { toggleDropDwnBtn(props.idName) }} type="button" className="dropdown-btn">{`${props.title} \u25bc`}</button>
       {category ? (
         <div
           id={props.idName} className="dropdown-list" onClick={function (ev) {
-            handleAddFilter(props.idName, ev.target.innerHTML);
+            if (!fiteredList.includes(ev.target.innerHTML)) {
+              handleAddFilter(props.idName, ev.target.innerHTML);
+            }
           }}>
           {
             category.map(author => {

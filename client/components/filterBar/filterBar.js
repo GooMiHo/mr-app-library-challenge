@@ -15,9 +15,9 @@ export default class FilterBar extends Component {
     }
     return (
       <div>
-        <CategoryFilter category={languages} title="language" idName="language" handleAddFilter={handleAddFilter} />
-        <CategoryFilter category={authors} title="author" idName="author_name" handleAddFilter={handleAddFilter} />
-        <CategoryFilter category={publishers} title="publisher" idName="publisher" handleAddFilter={handleAddFilter} />
+        <CategoryFilter category={languages} title="language" idName="language" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
+        <CategoryFilter category={authors} title="author" idName="author_name" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
+        <CategoryFilter category={publishers} title="publisher" idName="publisher" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
       </div>
     );
   }
