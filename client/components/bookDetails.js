@@ -14,7 +14,6 @@ class BookDetailsComp extends Component {
     }
     else {
       const lastBook = JSON.parse(localStorage.getItem('book'));
-      console.log('lastBook', lastBook);
       this.props.fetchLastBook(lastBook);
     }
 
