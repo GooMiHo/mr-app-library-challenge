@@ -7,7 +7,7 @@ const SearchBar = (props) => {
   };
   return (
     <form className="search" onSubmit={e => handleSubmit(e)} >
-        <input name="searchVal" type="text" placeholder="Search by title" />
+        <input name="searchVal" type="text" placeholder="Search by title" required />
         <button type="submit">search</button>
     </form>
   );
