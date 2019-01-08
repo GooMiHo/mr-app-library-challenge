@@ -1,8 +1,9 @@
 import React from 'react';
 import Book from './book';
 import sortBooks from '../../helperFuctions/sortBooks';
+import { Link } from 'react-router-dom';
 
-export default function BookList({ books, sort }) {
+export default function BookList({ books, sort, history }) {
   if (books && books.length >= 1 && sort !== '') {
     books = sortBooks(books, sort);
   }
@@ -14,7 +15,14 @@ export default function BookList({ books, sort }) {
         !books.length ?
           <h4>There are no books matching this title</h4> :
           books.map(book => {
-            return <Book key={book.key} book={book} />;
+            let key = book.key.slice(7);
+            return (
+              <div key={book.key} >
+                <Link key={book.key} to={`/book/${key}`}>
+                  <Book book={book} />
+                </Link>
+              </div>
+            );
           })
       }
     </div>

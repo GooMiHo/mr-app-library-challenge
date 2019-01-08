@@ -7,7 +7,7 @@ const Book = (props) => {
     <div>
       <p>{book.title}</p>
       <p>First published: {book.first_publish_year || <i>n/a</i>}</p>
-      <div>{BookImage(book)}</div>
+      <div>{BookImage(book, 'S')}</div>
     </div>
   );
 };

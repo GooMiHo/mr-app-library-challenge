@@ -5,15 +5,15 @@ import { HashRouter, Route } from 'react-router-dom';
 
 import store from './redux/store';
 import Main from './components/main';
-import BookList from './components/bookList';
+import BookDetails from './components/bookDetails';
 
 ReactDOM.render(
   <div>
     <Provider store={store}>
       <HashRouter>
         <div>
-          <Route path="/" component={Main} />
-          <Route path="/books" component={BookList} />
+          <Route exact path="/" component={Main} />
+          <Route path="/book/:bookKey" component={BookDetails} />
         </div>
       </HashRouter>
     </Provider>

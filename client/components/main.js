@@ -77,7 +77,7 @@ class MainComp extends Component {
         <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
         <SortMenu handleAddSort={this.handleAddSort} />
         <SearchBar searchOnChange={this.searchOnChange} />
-        <BookList books={books} sort={this.state.sortChoice} />
+        <BookList books={books} sort={this.state.sortChoice} history={this.props.history}/>
       </div>
     );
   }
