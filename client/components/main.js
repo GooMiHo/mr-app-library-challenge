@@ -7,6 +7,7 @@ import SearchBar from './searchBar';
 import filterBooks from '../helperFuctions/filterBooks';
 import FilteredList from './bookList/filteredList';
 import BookList from './bookList/index';
+import SortMenu from './sortMenu';
 
 class MainComp extends Component {
 
@@ -14,11 +15,13 @@ class MainComp extends Component {
     super();
     this.state = {
       filterTopics: {
-      }
+      },
+      sortChoice: '',
     };
     this.searchOnChange = this.searchOnChange.bind(this);
     this.handleAddFilter = this.handleAddFilter.bind(this);
     this.handleRmvFilter = this.handleRmvFilter.bind(this);
+    this.handleAddSort = this.handleAddSort.bind(this);
   }
 
   searchOnChange(searchVal) {
@@ -51,6 +54,17 @@ class MainComp extends Component {
     });
   }
 
+  handleAddSort(choice) {
+    if (this.state.sortChoice !== choice) {
+      console.log('run')
+      this.setState({sortChoice: choice});
+    }
+    else {
+      console.log('run2')
+      this.setState({sortChoice: ''})
+    }
+  }
+
   render() {
     const booksNoFilt = this.props.books.docs;
     const filterTopics = this.state.filterTopics;
@@ -63,8 +77,9 @@ class MainComp extends Component {
           <FilteredList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
         </div>
         <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
+        <SortMenu handleAddSort={this.handleAddSort} />
         <SearchBar searchOnChange={this.searchOnChange} />
-        <BookList books={books} />
+        <BookList books={books} sort={this.state.sortChoice} filter={this.state.filterTopics} />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import toggleDropDwnBtn from './tggleDrpDwnBtw';
+import toggleDropDwnBtn from '../../helperFuctions/tggleDrpDwnBtn';
 
 
 const CategoryFilter = (props) => {

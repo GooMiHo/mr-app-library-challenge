@@ -3,7 +3,7 @@ import getBookLangs from '../../helperFuctions/getBookLang';
 import getTopicList from '../../helperFuctions/getTopicList';
 import CategoryFilter from './categoryFilter';
 
-export default class Main extends Component {
+export default class FilterBar extends Component {
 
   render() {
     const handleAddFilter = this.props.handleAddFilter;

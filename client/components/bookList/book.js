@@ -6,9 +6,11 @@ const Book = (props) => {
   return (
     <div>
       <p>{book.title}</p>
+      <p>First published: {book.first_publish_year || <i>n/a</i>}</p>
       <div>{BookImage(book)}</div>
     </div>
   );
 };
 
 export default Book;
+
