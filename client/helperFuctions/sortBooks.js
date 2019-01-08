@@ -1,12 +1,8 @@
-export default function sortBooks(books, sort, filter) {
+import sortPubDate from '../helperFuctions/sortPubDate';
 
-  let booksWithYear = books.filter(book => book.first_publish_year);
-  let booksNoYear = books.filter(book => !book.first_publish_year);
+export default function sortBooks(books, sort) {
+  let sortedBooks = [...books].sort( (a, b) => sortPubDate(a, b));
+  return sortedBooks;
 
-  let sortedBooks = booksWithYear.sort((a, b) => {
-    return a.first_publish_year - b.first_publish_year;
-  });
-
-  return sortedBooks.concat(booksNoYear);
 }
 

@@ -2,13 +2,10 @@ import React from 'react';
 import Book from './book';
 import sortBooks from '../../helperFuctions/sortBooks';
 
-export default function BookList({ books, sort, filter }) {
-  console.log('sort: ', sort)
-  if (books && books.length >= 1 && sort === 'Publication data (older - newer)') {
-    console.log('laal')
-    books = sortBooks(books, sort, filter);
+export default function BookList({ books, sort }) {
+  if (books && books.length >= 1 && sort !== '') {
+    books = sortBooks(books, sort);
   }
-  console.log(books)
 
   return (
     <div>

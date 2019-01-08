@@ -56,12 +56,10 @@ class MainComp extends Component {
 
   handleAddSort(choice) {
     if (this.state.sortChoice !== choice) {
-      console.log('run')
-      this.setState({sortChoice: choice});
+      this.setState({ sortChoice: choice });
     }
     else {
-      console.log('run2')
-      this.setState({sortChoice: ''})
+      this.setState({ sortChoice: '' })
     }
   }
 
@@ -79,7 +77,7 @@ class MainComp extends Component {
         <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} />
         <SortMenu handleAddSort={this.handleAddSort} />
         <SearchBar searchOnChange={this.searchOnChange} />
-        <BookList books={books} sort={this.state.sortChoice} filter={this.state.filterTopics} />
+        <BookList books={books} sort={this.state.sortChoice} />
       </div>
     );
   }
