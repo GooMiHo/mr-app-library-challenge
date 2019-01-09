@@ -1,11 +1,11 @@
 import React from 'react';
 import toggleDropDwnBtn from '../../helperFuctions/tggleDrpDwnBtn';
-import getFilteredList from '../../helperFuctions/getFilterList';
+import getFilterList from '../../helperFuctions/getFilterList';
 
 const CategoryFilter = (props) => {
   const category = props.category;
   const handleAddFilter = props.handleAddFilter;
-  const fiteredList = getFilteredList(props.filterTopics);
+  const fiteredList = getFilterList(props.filterTopics);
 
   return (
     <div className="dropdown">

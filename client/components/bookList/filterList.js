@@ -1,7 +1,7 @@
 import React from 'react';
 import RmvFiltBtn from './rmvFiltBtn';
 
-export default function FilteredList({filterTopics, handleRmvFilter}) {
+export default function FilterList({filterTopics, handleRmvFilter}) {
   const topics = Object.keys(filterTopics);
   return (
     topics.map(topic => {

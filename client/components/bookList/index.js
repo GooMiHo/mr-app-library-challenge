@@ -2,13 +2,11 @@ import React from 'react';
 import Book from './book';
 import sortBooks from '../../helperFuctions/sortBooks';
 import { Link } from 'react-router-dom';
-import toggleFilter from '../../helperFuctions/toggleFilter';
 
-export default function BookList({ books, sort, history }) {
+export default function BookList({ books, sort }) {
   if (books && books.length >= 1 && sort !== '') {
     books = sortBooks(books, sort);
   }
-  toggleFilter(books);
 
   return (
     <div>

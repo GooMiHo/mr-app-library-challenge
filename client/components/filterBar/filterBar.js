@@ -7,17 +7,21 @@ export default class FilterBar extends Component {
 
   render() {
     const handleAddFilter = this.props.handleAddFilter;
+    const books = this.props.books;
     let languages, authors, publishers;
-    if (this.props.books) {
-      languages = getBookLangs(this.props.books);
-      authors = getTopicList(this.props.books, 'author_name');
-      publishers = getTopicList(this.props.books, 'publisher');
+    if (books) {
+      languages = getBookLangs(books);
+      authors = getTopicList(books, 'author_name');
+      publishers = getTopicList(books, 'publisher');
     }
     return (
-      <div>
-        <CategoryFilter category={languages} title="language" idName="language" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
-        <CategoryFilter category={authors} title="author" idName="author_name" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
-        <CategoryFilter category={publishers} title="publisher" idName="publisher" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
+      <div id="filter-bar">
+        {books ?
+        <div>
+          <CategoryFilter category={languages} title="language" idName="language" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
+          <CategoryFilter category={authors} title="author" idName="author_name" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
+          <CategoryFilter category={publishers} title="publisher" idName="publisher" handleAddFilter={handleAddFilter} filterTopics={this.props.filterTopics} />
+        </div> : null}
       </div>
     );
   }

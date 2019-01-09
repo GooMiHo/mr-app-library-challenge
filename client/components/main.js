@@ -5,7 +5,7 @@ import { fetchBooksByTitle } from '../redux/actions';
 import FilterBar from './filterBar/filterBar';
 import SearchBar from './searchBar';
 import filterBooks from '../helperFuctions/filterBooks';
-import FilteredList from './bookList/filteredList';
+import FilterList from './bookList/filterList';
 import BookList from './bookList/index';
 import SortMenu from './sortMenu';
 
@@ -59,7 +59,7 @@ class MainComp extends Component {
       this.setState({ sortChoice: choice });
     }
     else {
-      this.setState({ sortChoice: '' })
+      this.setState({ sortChoice: '' });
     }
   }
 
@@ -71,13 +71,13 @@ class MainComp extends Component {
     return (
       <div>
         <h1>Library App</h1>
-        <div>
-          <FilteredList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
+        <div id="main-bar">
+          <SearchBar searchOnChange={this.searchOnChange} />
+          <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} filterTopics={this.state.filterTopics} />
+          <SortMenu handleAddSort={this.handleAddSort} />
+          <FilterList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
         </div>
-        <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} filterTopics={this.state.filterTopics} />
-        <SortMenu handleAddSort={this.handleAddSort} />
-        <SearchBar searchOnChange={this.searchOnChange} />
-        <BookList books={books} sort={this.state.sortChoice} history={this.props.history} />
+        <BookList books={books} sort={this.state.sortChoice} />
       </div>
     );
   }
