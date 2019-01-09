@@ -1,10 +1,32 @@
 
 * {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+h1 {
+  font-family: 'Bitter', serif;
+  font-size: 5vw;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
 }
 
 /* ======== All Bars (Search Bar, Filter Bar, Sort) ======== */
+
+
+#filt-and-sort{
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
 
 .search-btn,
 #search-bar,
@@ -12,7 +34,7 @@
   color: white;
 }
 
-#main-bar,
+#banner,
 #search-bar,
 .dropdown-btn,
 .search-btn {
@@ -21,17 +43,25 @@
 
 #search-bar,
 .dropdown-btn {
-  padding: 16px;
   font-size: 16px;
   width: 200px;
   border: none;
 }
+
+.line {
+  background-color: #283593;
+  height: 5px;;
+}
+
 /* ======================= Seach Bar ======================= */
 
 input {
-  margin: 20px 0;
-  margin-left: 20px;
-  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  font-size: 20px;
+  width: 30%;
+  min-width: 250px;
   background-color: #82e9de;
   border-color: #82e9de;
   border-radius: 10px;
@@ -66,6 +96,17 @@ input::placeholder {
 
 
 /* ================= Filter Dropdown Menus ================= */
+
+.dropdown-btn {
+  padding-bottom: 5px;
+}
+
+.click-arrow,
+.sort-opt {
+  font-size: 12px;
+  width: 250px;
+}
+
 .dropdown-btn:hover, .dropdown-btn:focus {
   background-color: #82e9de;
   outline: none;
@@ -106,18 +147,3 @@ input::placeholder {
   display: block;
 }
 
-
-
-/* ======================= Filter Bar ====================== */
-
-/* #filter-bar-div {
-  display: none;
-}
-
-.dropdown {
-  display: none;
-} */
-
-#filter-bar {
-  display: flex;
-}

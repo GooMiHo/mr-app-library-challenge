@@ -9,7 +9,7 @@ const CategoryFilter = (props) => {
 
   return (
     <div className="dropdown">
-      <button onClick={() => { toggleDropDwnBtn(props.idName) }} type="button" className="dropdown-btn">{`${props.title} \u25bc`}</button>
+      <button onClick={() => { toggleDropDwnBtn(props.idName) }} type="button" className="dropdown-btn">{props.title} <span className="click-arrow">{`\u25bc`}</span></button>
       {category ? (
         <div
           id={props.idName} className="dropdown-list" onClick={function (ev) {

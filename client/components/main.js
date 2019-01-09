@@ -7,7 +7,7 @@ import SearchBar from './searchBar';
 import filterBooks from '../helperFuctions/filterBooks';
 import FilterList from './bookList/filterList';
 import BookList from './bookList/index';
-import SortMenu from './sortMenu';
+import SortDropdown from './sortDropdown';
 
 class MainComp extends Component {
 
@@ -70,13 +70,16 @@ class MainComp extends Component {
 
     return (
       <div>
-        <h1>Library App</h1>
-        <div id="main-bar">
+        <h1>Book Finder</h1>
+        <div id="banner">
           <SearchBar searchOnChange={this.searchOnChange} />
-          <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} filterTopics={this.state.filterTopics} />
-          <SortMenu handleAddSort={this.handleAddSort} />
-          <FilterList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
+          <div id="filt-and-sort">
+            <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} filterTopics={this.state.filterTopics} />
+            <SortDropdown handleAddSort={this.handleAddSort} books={booksNoFilt} />
+          </div>
+          <div className="line" />
         </div>
+        <FilterList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
         <BookList books={books} sort={this.state.sortChoice} />
       </div>
     );
