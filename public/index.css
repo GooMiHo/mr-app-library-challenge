@@ -4,13 +4,17 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-
 h1 {
   font-family: 'Bitter', serif;
   font-size: 5vw;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 20px;
+}
+
+h4 {
+  margin-top: 20px;
+  margin-left: 50px;
 }
 
 @media only screen and (max-width: 650px) {
@@ -46,11 +50,6 @@ h1 {
   font-size: 16px;
   width: 200px;
   border: none;
-}
-
-.line {
-  background-color: #283593;
-  height: 5px;;
 }
 
 /* ======================= Seach Bar ======================= */
@@ -147,3 +146,32 @@ input::placeholder {
   display: block;
 }
 
+
+/* ================== Books in List ================== */
+
+#outer-booklist-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  /* background-color: #86ebb4; */
+}
+
+.book-list {
+  width: 90%;
+  height: 100%;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-gap: 1rem 1rem;
+  /* background-color: #4db6ac; */
+}
+
+.small-img {
+  height: 70px
+}
+
+.small-book {
+  background-color: #f5f5f5;
+  /* width: 50%; */
+  margin: 10px;
+}

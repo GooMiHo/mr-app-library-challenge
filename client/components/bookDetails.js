@@ -26,11 +26,11 @@ class BookDetailsComp extends Component {
         <button type="button" onClick={() => { this.props.history.push('/') }}>x</button>
         <div>{BookImage(book, 'L')}</div>
         <h1>{book.title}</h1>
-        <p>author {book.author_name ? book.author_name.join(', ') : 'N/A'}</p>
-        <p>First published in {book.first_publish_year || 'N/A'}</p>
-        <p><i>{book.publish_year ? book.publish_year.length : 'N/A'} additions</i></p>
+        <p>author {book.author_name ? book.author_name.join(', ') : 'unknown'}</p>
+        <p>First published in {book.first_publish_year || 'unknown'}</p>
+        <p><i>{book.publish_year ? `${book.publish_year.length} additions` : null}</i></p>
         <br />
-        <p>{book.first_sentence}</p>
+        <p>{book.first_sentence? book.first_sentence[0] : 'unavailable'}</p>
         <h5>subjects:</h5>
         <div>
           {book.subject ? book.subject.map((subj, i) => {

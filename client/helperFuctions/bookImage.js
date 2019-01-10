@@ -19,6 +19,7 @@ export default function BookImage(book, size) {
 
     return (
       <img
+        className={imgSizeClass}
         src={`https://covers.openlibrary.org/b/isbn/${bookImg[0]}-${size}.jpg?default=false`}
         onError={(e) => {
           e.target.onerror = null; e.target.src = image2Failed() || !bookImg[1] ?
@@ -30,7 +31,13 @@ export default function BookImage(book, size) {
     );
   }
   else {
-    return <img src="https://i.ibb.co/MBtx88j/book-img-not-available.png" alt="book cover image" className={imgSizeClass} />;
+    return (
+      <img
+        className={imgSizeClass}
+        src="https://i.ibb.co/MBtx88j/book-img-not-available.png"
+        alt="book cover image"
+      />
+    );
   }
 
 }

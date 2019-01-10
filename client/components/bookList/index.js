@@ -9,22 +9,22 @@ export default function BookList({ books, sort }) {
   }
 
   return (
-    <div>
-      {!books ?
-        <h4>Please search for a book by title to view results</h4> :
-        !books.length ?
-          <h4>There are no books matching these requirements</h4> :
-          books.map(book => {
-            let key = book.key.slice(7);
-            return (
-              <div key={book.key} >
-                <Link key={book.key} to={`/book/${key}`}>
+    <div id="outer-booklist-div">
+      <div className="book-list">
+        {!books ?
+          <h4>Please search for a book by title to view results</h4> :
+          !books.length ?
+            <h4>There are no books matching these requirements</h4> :
+            books.map(book => {
+              let key = book.key.slice(7);
+              return (
+                <Link key={book.key} to={`/book/${key}`} >
                   <Book book={book} />
                 </Link>
-              </div>
-            );
-          })
-      }
+              );
+            })
+        }
+      </div>
     </div>
   );
 }

@@ -77,10 +77,11 @@ class MainComp extends Component {
             <FilterBar books={booksNoFilt} handleAddFilter={this.handleAddFilter} filterTopics={this.state.filterTopics} />
             <SortDropdown handleAddSort={this.handleAddSort} books={booksNoFilt} />
           </div>
-          <div className="line" />
         </div>
         <FilterList filterTopics={filterTopics} handleRmvFilter={this.handleRmvFilter} />
-        <BookList books={books} sort={this.state.sortChoice} />
+        <div>
+          <BookList books={books} sort={this.state.sortChoice} />
+        </div>
       </div>
     );
   }
