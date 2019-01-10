@@ -12,9 +12,14 @@ export default function BookList({ books, sort }) {
     <div id="outer-booklist-div">
       <div className="book-list">
         {!books ?
-          <h4>Please search for a book by title to view results</h4> :
+          <div className="book-list-txt">
+            <h4>Please search for a book by title to view results</h4>
+          </div>
+          :
           !books.length ?
-            <h4>There are no books matching these requirements</h4> :
+            <div className="book-list-txt">
+              <h4>There are no books matching these requirements</h4>
+            </div> :
             books.map(book => {
               let key = book.key.slice(7);
               return (
