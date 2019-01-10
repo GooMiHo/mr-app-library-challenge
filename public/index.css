@@ -159,10 +159,13 @@ input::placeholder {
   width: 90%;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .filter-list p {
   margin-left: 20px;
+  display: block;
+  white-space: nowrap;
 }
 
 .filter-word {
@@ -172,6 +175,7 @@ input::placeholder {
 .rmv-btn {
   position: relative;
   border: none;
+  background-color: white;
   top: 1px;
 }
 
