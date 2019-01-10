@@ -8,6 +8,7 @@ import filterBooks from '../helperFuctions/filterBooks';
 import FilterList from './bookList/filterList';
 import BookList from './bookList/index';
 import SortDropdown from './sortDropdown';
+import ListFooter from './bookList/list-footer';
 
 class MainComp extends Component {
 
@@ -104,6 +105,7 @@ class MainComp extends Component {
         <div>
           <BookList books={books} sort={this.state.sortChoice} />
         </div>
+        <ListFooter books={books} />
       </div>
     );
   }

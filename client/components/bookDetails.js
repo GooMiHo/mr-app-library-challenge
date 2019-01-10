@@ -51,10 +51,10 @@ class BookDetailsComp extends Component {
         <h5 className="pub-list-title">available in these languages:</h5>
         <div className="pub-list">
           {book.language ? book.language
-          .map(lang => {
-            return cnvrtLangCode(lang);
-          })
-          .join(', ') : 'N/A'
+            .map(lang => {
+              return cnvrtLangCode(lang);
+            })
+            .join(', ') : 'N/A'
           }
         </div>
         <h5 className="pub-list-title">available from these publishers:</h5>
@@ -62,6 +62,11 @@ class BookDetailsComp extends Component {
           {book.publisher ? book.publisher.join(', ') : 'N/A'
           }
         </div>
+        <br />
+        <footer>
+          <p className="book-dets-footer">data and images from<a href="https://openlibrary.org/dev/docs/api/books"> Open Library Books API</a>
+          </p>
+        </footer>
       </div>
     );
   }
