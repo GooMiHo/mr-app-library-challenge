@@ -70,6 +70,26 @@ class MainComp extends Component {
 
     return (
       <div>
+        <div className="links-div">
+          <a href="https://www.linkedin.com/in/bethany-m-walker/">
+            <img
+              src="https://i.ibb.co/xDt8dsc/linkedin-btn.png"
+              className="linkedin-btn"
+              alt="linkedin button"
+              border="0"
+              value="Go to Bethany's linked page"
+            />
+          </a>
+          <a href="https://github.com/GooMiHo/mr-app-library-challenge/">
+            <img
+              src="https://i.ibb.co/0KTzqyX/github-btn.png"
+              className="github-btn"
+              alt="github button"
+              border="0"
+              value="Go to Bethany's github"
+            />
+          </a>
+        </div>
         <h1>Book Finder</h1>
         <div id="banner">
           <SearchBar searchOnChange={this.searchOnChange} />
