@@ -52,7 +52,6 @@ class BookDetailsComp extends Component {
         <div className="pub-list">
           {book.language ? book.language
           .map(lang => {
-            console.log(lang)
             return cnvrtLangCode(lang);
           })
           .join(', ') : 'N/A'
