@@ -7,8 +7,6 @@ export default function BookList({ books, sort }) {
   if (books && books.length >= 1 && sort !== '') {
     books = sortBooks(books, sort);
   }
-  console.log('books && books.length < 3 :', books && books.length < 3)
-
   return (
     <div id="outer-booklist-div">
       <div className={books && books.length < 3 && books.length !== 0 ?

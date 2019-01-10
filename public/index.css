@@ -153,6 +153,28 @@ input::placeholder {
   width: 168px;
 }
 
+/* ============ List of what is filtered ============= */
+
+.filter-list {
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+
+.filter-list p {
+  margin-left: 20px;
+}
+
+.filter-word {
+  display: flex;
+}
+
+.rmv-btn {
+  position: relative;
+  border: none;
+  top: 1px;
+}
+
 /* ================== Books in List ================== */
 
 .book-list-txt {

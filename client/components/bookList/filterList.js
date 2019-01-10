@@ -7,7 +7,7 @@ export default function FilterList({filterTopics, handleRmvFilter}) {
     topics.map(topic => {
       return filterTopics[topic].map(option => {
         return (
-          <div key={option}>
+          <div className="filter-word" key={option}>
             <p>{option}</p><RmvFiltBtn handleRmvFilter={handleRmvFilter} topic={topic} option={option} />
           </div>
         );
