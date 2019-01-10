@@ -3,6 +3,10 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+  height: 100%;
+}
+
 h1 {
   font-family: 'Bitter', serif;
   font-size: 5vw;
@@ -77,6 +81,7 @@ h4 {
 }
 
 /* ======================= Seach Bar ======================= */
+
 form {
   display: flex;
   margin: auto;
@@ -93,6 +98,7 @@ input {
   background-color: #82e9de;
   border-color: #82e9de;
   border-radius: 10px;
+  padding-left: 10px;
 }
 
 input:focus {
