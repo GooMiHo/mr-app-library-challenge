@@ -10,7 +10,9 @@ export default function BookList({ books, sort }) {
 
   return (
     <div id="outer-booklist-div">
-      <div className="book-list">
+      <div className={!books || books.length < 3 ?
+        'book-list short-book-list' :
+        'book-list'}>
         {!books ?
           <div className="book-list-txt">
             <h4>Please search for a book by title to view results</h4>

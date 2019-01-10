@@ -158,7 +158,6 @@ input::placeholder {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
-  /* background-color: #86ebb4; */
 }
 
 .book-list {
@@ -166,19 +165,33 @@ input::placeholder {
   height: 100%;
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+  justify-content: center;
   grid-gap: 1rem 1rem;
-  /* background-color: #4db6ac; */
+}
+
+/* sets list to left when there are 2 books or less  */
+.short-book-list {
+  justify-content: left;
 }
 
 .small-img {
-  height: 70px
+  height: 70px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .small-book {
   background-color: #f5f5f5;
-  /* width: 50%; */
+  width: 350px;
+  height: 150px;
   margin: 10px;
+}
+
+.smll-book-inner {
+  margin: 10px 20px;
+  height: 130px;
+  position: absolute;
 }
 
 .img-info-div {
@@ -188,10 +201,18 @@ input::placeholder {
 .img-info-div p,
 h3 {
   color: black;
-  /* text-decoration: none; */
 }
+
+h3 {
+font-size: 17px;
+}
+
 .book-list a {
   text-decoration: none;
+}
+
+.smll-info-div {
+  margin-top: 10px;
 }
 
 
@@ -212,9 +233,9 @@ h3 {
   .dropdown-btn {
     width: 100px;
   }
-  /* #filter-bar {
-    margin-left: 10px;
-  } */
+  #filter-bar {
+    margin-left: 20px;
+  }
 }
 
 @media only screen and (max-width: 415px) {
@@ -222,6 +243,10 @@ h3 {
   .dropdown-btn {
     width: 80px;
     font-size: 14px;
+  }
+
+  #sort-btn {
+    width: 50px;
   }
 
   .click-arrow {
@@ -239,7 +264,6 @@ h3 {
   .dropdown-list .sort-opt {
     font-size: 12px
   }
-
 
 }
 
