@@ -436,3 +436,11 @@ font-size: 17px;
   margin-right: 30px;
 }
 
+/* ===================== Footer ===================== */
+
+footer p {
+  color: gray;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

@@ -32,7 +32,7 @@ This app has responsive design. Resize your screen! **Try it on your phone!**
 
 `HTML`, `CSS`, `React`, and `Redux` were used to build this site's front end. `Express` was use for the backend. The app is available online through `Heroku`.
 
-All book data was retrieved through the **Open Library Books API** (https://openlibrary.org/dev/docs/api/books).
+All book data and images were retrieved through the **Open Library Books API** (https://openlibrary.org/dev/docs/api/books).
 
 
 ## Implementation
