@@ -113,7 +113,6 @@ input::placeholder {
 .search-btn {
   display: inline;
   border: none;
-  margin-top: 19px;
 }
 
 .search-btn:focus {
@@ -279,6 +278,94 @@ font-size: 17px;
   margin-top: 10px;
 }
 
+/* ================== Book with Details ================== */
+
+.book-dets-div {
+  position: relative;
+  background-color: #f5f5f5;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+  width: 95%;
+  border-radius: 10px;
+}
+
+.title-info-div {
+  display: flex;
+  margin: auto;
+}
+
+.book-dets-div button {
+  position: absolute;
+  background-color: #f5f5f5;
+  border-width: 2px;
+  border-color: white;
+  height: 25px;;
+  top: 1%;
+  right: 1%;
+}
+
+.book-dets-div img {
+  height: 30vw;
+  margin: 30px;
+}
+
+.lrg-book-info {
+  margin-right: 30px;
+}
+
+.book-dets-div h2 {
+  font-size: 5vw;
+  margin-top: 21px;
+}
+
+.book-dets-div h5 {
+  font-size: 17px;
+}
+
+.sub-list p {
+  display: inline;
+}
+
+.subj-title,
+.pub-list-title {
+  margin: 15px;
+  margin-left: 30px;
+}
+
+.sub-list,
+.pub-list {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+/* ===================== Footers ===================== */
+
+footer {
+  color: gray;
+}
+
+.no-list-footer {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.list-footer {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.book-dets-footer {
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===================== @media ===================== */
+
 @media only screen and (max-width: 800px) {
   .dropdown-btn {
     width: 100px;
@@ -375,89 +462,3 @@ font-size: 17px;
 
 }
 
-
-/* ================== Book with Details ================== */
-
-.book-dets-div {
-  position: relative;
-  background-color: #f5f5f5;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 40px;
-  width: 95%;
-  border-radius: 10px;
-}
-
-.title-info-div {
-  display: flex;
-  margin: auto;
-}
-
-.book-dets-div button {
-  position: absolute;
-  background-color: #f5f5f5;
-  border-width: 2px;
-  border-color: white;
-  height: 25px;;
-  top: 1%;
-  right: 1%;
-}
-
-.book-dets-div img {
-  height: 30vw;
-  margin: 30px;
-}
-
-.lrg-book-info {
-  margin-right: 30px;
-}
-
-.book-dets-div h2 {
-  font-size: 5vw;
-  margin-top: 21px;
-}
-
-.book-dets-div h5 {
-  font-size: 17px;
-}
-
-.sub-list p {
-  display: inline;
-}
-
-.subj-title,
-.pub-list-title {
-  margin: 15px;
-  margin-left: 30px;
-}
-
-.sub-list,
-.pub-list {
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-/* ===================== Footers ===================== */
-
-footer {
-  color: gray;
-}
-
-.no-list-footer {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-.list-footer {
-  float: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.book-dets-footer {
-  float: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}

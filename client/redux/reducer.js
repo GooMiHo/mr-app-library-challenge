@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { SET_BOOKS_BY_TITLE, SELECT_BOOK } from './constants';
 
 const reducer = (state = { books: {},  book: {}  }, action) => {
