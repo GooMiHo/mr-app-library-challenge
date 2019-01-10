@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import cnvrtLangCode from '../helperFuctions/langConverter';
 
 import { fetchBookByKey, fetchLastBook } from '../redux/actions';
 import BookImage from '../helperFuctions/bookImage';
@@ -26,27 +27,42 @@ class BookDetailsComp extends Component {
         <button type="button" onClick={() => { this.props.history.push('/') }}>{`\u2715`}</button>
         <div className="title-info-div">
           <div>{BookImage(book, 'L')}</div>
-          <div>
+          <div className="lrg-book-info">
             <h2>{book.title}</h2>
             <p>author {book.author_name ? book.author_name.join(', ') : 'unknown'}</p>
             <p>First published in {book.first_publish_year || 'unknown'}</p>
             <p><i>{book.publish_year ? `${book.publish_year.length} additions` : null}</i></p>
             <br />
+            <h5>first sentence:</h5>
             <p>{book.first_sentence ? book.first_sentence[0] : 'unavailable'}</p>
           </div>
         </div>
-        <h5>subjects:</h5>
-        <div>
+        <h5 className="subj-title">subjects:</h5>
+        <div className="sub-list">
           {book.subject ? book.subject.map((subj, i) => {
             return (
               <p key={`${book.subject}${subj}`}>
                 {addLink('subjects', subj, book)}{i === book.subject.length - 1 ? ' ' : ', '}
               </p>
             );
-          }) :
-            'N/A'}
+          }) : 'N/A'
+          }
         </div>
-        <br />
+        <h5 className="pub-list-title">available in these languages:</h5>
+        <div className="pub-list">
+          {book.language ? book.language
+          .map(lang => {
+            console.log(lang)
+            return cnvrtLangCode(lang);
+          })
+          .join(', ') : 'N/A'
+          }
+        </div>
+        <h5 className="pub-list-title">available from these publishers:</h5>
+        <div className="pub-list">
+          {book.publisher ? book.publisher.join(', ') : 'N/A'
+          }
+        </div>
       </div>
     );
   }
@@ -69,6 +85,9 @@ function addLink(type, topic, book) {
   localStorage.setItem('book', JSON.stringify(book));
 
   return (
-    <a key={`type-${topic}`} href={`https://openlibrary.org/${type}/${topic}`}>{searchTopic}</a>
+    <a
+      key={`type-${topic}`}
+      href={`https://openlibrary.org/${type}/${topic}`}>{searchTopic}
+    </a>
   );
 }
