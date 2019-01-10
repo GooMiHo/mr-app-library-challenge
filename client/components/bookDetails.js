@@ -22,15 +22,19 @@ class BookDetailsComp extends Component {
   render() {
     let book = this.props.book;
     return (
-      <div>
-        <button type="button" onClick={() => { this.props.history.push('/') }}>x</button>
-        <div>{BookImage(book, 'L')}</div>
-        <h1>{book.title}</h1>
-        <p>author {book.author_name ? book.author_name.join(', ') : 'unknown'}</p>
-        <p>First published in {book.first_publish_year || 'unknown'}</p>
-        <p><i>{book.publish_year ? `${book.publish_year.length} additions` : null}</i></p>
-        <br />
-        <p>{book.first_sentence? book.first_sentence[0] : 'unavailable'}</p>
+      <div className="book-dets-div">
+        <button type="button" onClick={() => { this.props.history.push('/') }}>{`\u2715`}</button>
+        <div className="title-info-div">
+          <div>{BookImage(book, 'L')}</div>
+          <div>
+            <h2>{book.title}</h2>
+            <p>author {book.author_name ? book.author_name.join(', ') : 'unknown'}</p>
+            <p>First published in {book.first_publish_year || 'unknown'}</p>
+            <p><i>{book.publish_year ? `${book.publish_year.length} additions` : null}</i></p>
+            <br />
+            <p>{book.first_sentence ? book.first_sentence[0] : 'unavailable'}</p>
+          </div>
+        </div>
         <h5>subjects:</h5>
         <div>
           {book.subject ? book.subject.map((subj, i) => {
