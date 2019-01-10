@@ -25,6 +25,9 @@ Upon clicking on a book, further information can be gathered, and a larger image
 ### Extras
 Hyperlinks were added to the list of given subjects, which will take the user to the Open Library page that suggests books based on that subject. The user can return to the previously viewed page with the assistance of local storage.
 
+## Design
+This app has responsive design. Resize your screen! **Try it on your phone!**
+
 ## Technologies
 
 `HTML`, `CSS`, `React`, and `Redux` were used to build this site's front end. `Express` was use for the backend. The app is available online through `Heroku`.
