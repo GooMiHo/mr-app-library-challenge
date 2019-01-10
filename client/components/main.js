@@ -121,3 +121,4 @@ const mapDispatchToProps = (dispatch) => {
 
 const Main = connect(mapStateToProps, mapDispatchToProps)(MainComp);
 export default Main;
+

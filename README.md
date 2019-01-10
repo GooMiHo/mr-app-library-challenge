@@ -48,3 +48,7 @@ All book data was retrieved through the **Open Library Books API** (https://open
   * `sortChoice` keeps track of which sort is turned on, if any. It determines how the list is sorted.
 
 * **Local storage** is used to store `book`, the most recently viewed book. If the user clicks on a hyperlink leaving the app site, the book info is stored. Upon hitting the back button, the data is retrieved from local storage and used to repopulate the page.
+
+## Notes
+
+404 (Not Found) errors will appear in the console. This is because a 404 has to be thrown to trip the `e.target.onerror` in `BookImage()` to change to a working image.
