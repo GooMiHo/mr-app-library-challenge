@@ -7,17 +7,17 @@ export default function BookList({ books, sort }) {
   if (books && books.length >= 1 && sort !== '') {
     books = sortBooks(books, sort);
   }
+  console.log('books && books.length < 3 :', books && books.length < 3)
 
   return (
     <div id="outer-booklist-div">
-      <div className={!books || books.length < 3 ?
+      <div className={books && books.length < 3 && books.length !== 0 ?
         'book-list short-book-list' :
         'book-list'}>
         {!books ?
           <div className="book-list-txt">
             <h4>Please search for a book by title to view results</h4>
-          </div>
-          :
+          </div> :
           !books.length ?
             <div className="book-list-txt">
               <h4>There are no books matching these requirements</h4>

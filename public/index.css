@@ -45,11 +45,16 @@ h4 {
 }
 
 /* ======================= Seach Bar ======================= */
-
+form {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
 input {
   margin-top: 20px;
   margin-bottom: 15px;
-  margin-left: 50px;
+  margin-left: 30px;
   font-size: 20px;
   width: 30%;
   min-width: 270px;
@@ -74,7 +79,7 @@ input::placeholder {
 }
 
 .search-btn {
-  position: absolute;
+  display: inline;
   border: none;
   margin-top: 19px;
 }
@@ -215,20 +220,6 @@ font-size: 17px;
   margin-top: 10px;
 }
 
-
-@media only screen and (max-width: 650px) {
-  h1 {
-    font-size: 32px;
-  }
-
-}
-
-@media only screen and (max-width: 380px) {
-  input {
-   margin-left: 30px;
-  }
-}
-
 @media only screen and (max-width: 800px) {
   .dropdown-btn {
     width: 100px;
@@ -236,6 +227,78 @@ font-size: 17px;
   #filter-bar {
     margin-left: 20px;
   }
+}
+
+@media only screen and (max-width: 795px) {
+  .book-list {
+    /* width: 90%;
+    height: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto)); */
+    /* justify-content: center; */
+    grid-gap: 1px 16px;
+  }
+
+}
+
+@media only screen and (max-width: 650px) {
+  h1 {
+    font-size: 32px;
+  }
+
+}
+/* @media only screen and (max-width: 370px) {
+  input {
+   margin-left: 30px;
+  }
+
+} */
+
+
+
+@media only screen and (max-width: 415px) {
+
+
+/* ----- main bar search/filter/sort ----- */
+
+  .dropdown-btn {
+    width: 80px;
+    font-size: 14px;
+  }
+
+  #sort-btn {
+    width: 50px;
+  }
+
+  .click-arrow {
+    font-size: 7px;
+  }
+
+  #filter-bar {
+    margin-left: 0;
+  }
+
+  .dropdown-list p {
+    font-size: 15px
+  }
+
+  .dropdown-list .sort-opt {
+    font-size: 12px
+  }
+
+/* ----- book list ----- */
+
+  .book-list {
+    width: 330px;
+  }
+  .small-book {
+    width: 330px;
+  }
+  .book-list-txt {
+    width: 330px;
+  }
+
 }
 
 @media only screen and (max-width: 415px) {
@@ -265,16 +328,4 @@ font-size: 17px;
     font-size: 12px
   }
 
-}
-
-@media only screen and (max-width: 360px) {
-  input {
-    margin-left: 15px;
-  }
-}
-
-@media only screen and (max-width: 335px) {
-  input {
-    margin-left: 7px;
-  }
 }
